@@ -2,11 +2,23 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
+// * .env.local - database passwords, stripe secret key...
+// * .env.development - stripe client key
+// * .env.production
+
 export function getServerSideProps() {
   console.log(process.env.SECRET_VARIAbLE);
+  return {
+    props: {},
+  };
 }
 
 export default function Home() {
+  console.log(
+    'env value =',
+    process.env.SECRET_VARIABLE,
+    process.env.NEXT_PUBLIC_VARIABLE
+  );
   return (
     <div className={styles.container}>
       <Head>
