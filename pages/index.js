@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css';
 // * .env.development.local - stripe client key
 // * .env.production.local
 
-export function getServerSideProps() {
+export function getServerSideProps(context) {
   console.log(process.env.SECRET_VARIAbLE);
   return {
     props: {},
