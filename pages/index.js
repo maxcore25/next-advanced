@@ -3,8 +3,8 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
 // * .env.local - database passwords, stripe secret key...
-// * .env.development - stripe client key
-// * .env.production
+// * .env.development.local - stripe client key
+// * .env.production.local
 
 export function getServerSideProps() {
   console.log(process.env.SECRET_VARIAbLE);
@@ -19,6 +19,8 @@ export default function Home() {
     process.env.SECRET_VARIABLE,
     process.env.NEXT_PUBLIC_VARIABLE
   );
+  console.log('check env var =', process.env.SPECIFICITY);
+
   return (
     <div className={styles.container}>
       <Head>
