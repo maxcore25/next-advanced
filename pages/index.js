@@ -65,6 +65,21 @@ export function getStaticProps(context) {
 
 // * ===== getStaticProps() =====
 
+// * ===== getStaticPaths() =====
+// This file must have [id].js syntax to use this param [id] in getStaticPaths()
+// It builds pages in build time and stores it all on disk/CDN
+export function getStaticPaths() {
+  return {
+    fallback: 'blocking',
+    paths: [
+      { params: { id: 'product-1' } },
+      { params: { id: 'product-2' } },
+      { params: { id: 'product-3' } },
+    ], // pages you want to build at build time (ahead of time)
+  };
+}
+// * ===== getStaticPaths() =====
+
 export default function Home() {
   console.log(
     'env value =',
