@@ -46,16 +46,16 @@ import styles from '../styles/Home.module.css';
 // /store/999 -> getStaticProps -> saved for other people
 // /store/999 -> served immediately as static page
 
-export function getStaticProps(context) {
-  console.log(context);
+// export function getStaticProps(context) {
+//   console.log(context);
 
-  // db calls
+//   // db calls
 
-  return {
-    props: {},
-    revalidate: 10, // I will at most generate only 1 page in 10 seconds
-  };
-}
+//   return {
+//     props: {},
+//     revalidate: 10, // I will at most generate only 1 page in 10 seconds
+//   };
+// }
 
 // version of page: 1, 2, 3, 4, 5
 
@@ -68,16 +68,16 @@ export function getStaticProps(context) {
 // * ===== getStaticPaths() =====
 // This file must have [id].js syntax to use this param [id] in getStaticPaths()
 // It builds pages in build time and stores it all on disk/CDN
-export function getStaticPaths() {
-  return {
-    fallback: 'blocking',
-    paths: [
-      { params: { id: 'product-1' } },
-      { params: { id: 'product-2' } },
-      { params: { id: 'product-3' } },
-    ], // pages you want to build at build time (ahead of time)
-  };
-}
+// export function getStaticPaths() {
+//   return {
+//     fallback: 'blocking',
+//     paths: [
+//       { params: { id: 'product-1' } },
+//       { params: { id: 'product-2' } },
+//       { params: { id: 'product-3' } },
+//     ], // pages you want to build at build time (ahead of time)
+//   };
+// }
 // * ===== getStaticPaths() =====
 
 export default function Home() {
