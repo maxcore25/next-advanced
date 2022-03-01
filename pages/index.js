@@ -53,11 +53,15 @@ export function getStaticProps(context) {
 
   return {
     props: {},
-    revalidate: 10,
+    revalidate: 10, // I will at most generate only 1 page in 10 seconds
   };
 }
-// time: 0 5 6 6 6 6 8 9 9  9  9 10 15 15 15
-// time: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+// version of page: 1, 2, 3, 4, 5
+
+// time: 0 5 6 6 6 6 8 9 9  9  9 10 11    12   15 15 15
+// req:  1 2 3 4 5 6 7 8 9 10 11 12 12.5  X    13 14 15
+// ver:  1 1 1 1 1 1 1 1 1 1  1  1  1          2   2  2...
 
 // * ===== getStaticProps() =====
 
