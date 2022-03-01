@@ -7,19 +7,27 @@ import styles from '../styles/Home.module.css';
 // * .env.production.local
 
 export function getServerSideProps(context) {
+  // * env variables
   // console.log(process.env.SECRET_VARIAbLE);
 
+  // * context
   console.log(context);
-  context.res.statusCode = 418;
-  context.res.write(JSON.stringify({ something: 'cool' }));
-  context.res.end();
+  // context.res.statusCode = 418;
+  // context.res.write(JSON.stringify({ something: 'cool' }));
+  // context.res.end();
 
+  // * redirect
   // return {
   //   redirect: {
   //     destination: 'https://google.com',
   //     permanent: false,
   //   },
   // };
+
+  // * in 'if' can be logical condition (no data found, etc.)
+  // if (2 === 2) {
+  //   return { notFound: true };
+  // }
 
   return {
     props: {},
