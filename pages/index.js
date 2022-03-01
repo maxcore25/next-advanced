@@ -6,33 +6,60 @@ import styles from '../styles/Home.module.css';
 // * .env.development.local - stripe client key
 // * .env.production.local
 
-export function getServerSideProps(context) {
-  // * env variables
-  // console.log(process.env.SECRET_VARIAbLE);
+// * ===== getServerSideProps() =====
+// export function getServerSideProps(context) {
+//   // * env variables
+//   // console.log(process.env.SECRET_VARIAbLE);
 
-  // * context
+//   // * context
+//   console.log(context);
+//   // context.res.statusCode = 418;
+//   // context.res.write(JSON.stringify({ something: 'cool' }));
+//   // context.res.end();
+
+//   // * redirect
+//   // return {
+//   //   redirect: {
+//   //     destination: 'https://google.com',
+//   //     permanent: false,
+//   //   },
+//   // };
+
+//   // * in 'if' can be logical condition (no data found, etc.)
+//   // if (2 === 2) {
+//   //   return { notFound: true };
+//   // }
+
+//   return {
+//     props: {},
+//   };
+// }
+// * ===== getServerSideProps() =====
+
+// * ===== getStaticProps() =====
+// A) Build pages on build time
+// Example: 20 static routes, 35 dynamic routes (eCommerce store -> 35 products)
+
+// B) Incrementally/Lazily build website
+// 35M dynamic routes (/store/[id]) -> ahead of time = 0 pages
+// /store/1 -> getStaticProps (like getServerSideProps)
+// /store/999 -> getStaticProps -> saved for other people
+// /store/999 -> served immediately as static page
+
+export function getStaticProps(context) {
   console.log(context);
-  // context.res.statusCode = 418;
-  // context.res.write(JSON.stringify({ something: 'cool' }));
-  // context.res.end();
 
-  // * redirect
-  // return {
-  //   redirect: {
-  //     destination: 'https://google.com',
-  //     permanent: false,
-  //   },
-  // };
-
-  // * in 'if' can be logical condition (no data found, etc.)
-  // if (2 === 2) {
-  //   return { notFound: true };
-  // }
+  // db calls
 
   return {
     props: {},
+    revalidate: 10,
   };
 }
+// time: 0 5 6 6 6 6 8 9 9  9  9 10 15 15 15
+// time: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+// * ===== getStaticProps() =====
 
 export default function Home() {
   console.log(
