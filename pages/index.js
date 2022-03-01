@@ -7,7 +7,20 @@ import styles from '../styles/Home.module.css';
 // * .env.production.local
 
 export function getServerSideProps(context) {
-  console.log(process.env.SECRET_VARIAbLE);
+  // console.log(process.env.SECRET_VARIAbLE);
+
+  console.log(context);
+  context.res.statusCode = 418;
+  context.res.write(JSON.stringify({ something: 'cool' }));
+  context.res.end();
+
+  // return {
+  //   redirect: {
+  //     destination: 'https://google.com',
+  //     permanent: false,
+  //   },
+  // };
+
   return {
     props: {},
   };
